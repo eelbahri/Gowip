@@ -1,0 +1,9 @@
+<h1>Message</h1>
+
+<p>ID User : <%= @message.user_id %></p>
+<p>content : <%= @message.content %></p>
+
+<p>
+    <%= link_to 'Liste des messages', messages_path, class: 'btn btn-default' %>
+    <%= link_to 'Modifier', edit_message_path, class: 'btn btn-default' %>
+</p>
