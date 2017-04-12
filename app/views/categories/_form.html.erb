@@ -1,0 +1,13 @@
+<%= simple_form_for @category do |c| %>
+    <div class="row">
+        <div class="form-group">
+            <p>
+                <%= c.input :name, label: 'Name', class:'form-control' %>
+            </p>
+        </div>
+    </div>
+
+    <p>
+        <%= c.submit 'Submit', class: 'btn btn-primary' %>
+    </p>
+<% end %>
