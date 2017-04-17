@@ -1,13 +1,23 @@
-<%= simple_form_for @category do |c| %>
+<%= simple_form_for(@category) do |f| %>
+  <%= f.error_notification %>
+
     <div class="row">
-        <div class="form-group">
+        <div class="form-group col-lg-5">
             <p>
-                <%= c.input :name, label: 'Name', class:'form-control' %>
+                <%= f.input :name, label: 'Name', class:'form-control' %>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-lg-5">
+            <p>
+                <%= f.input :description, label: 'Description', class:'form-control' %>
             </p>
         </div>
     </div>
 
     <p>
-        <%= c.submit 'Submit', class: 'btn btn-primary' %>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
     </p>
 <% end %>

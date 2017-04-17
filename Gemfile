@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jquery-turbolinks'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'simple_form'

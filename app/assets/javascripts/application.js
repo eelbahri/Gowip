@@ -11,7 +11,27 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require_tree
 //= require bootstrap-sprockets
+//= require turbolinks
+
+
+
+$(document).on('turbolinks:load', function() {
+
+    $('.cube').each(function() {
+        $(this).css("background-color", getRandomColor());
+    });
+
+    function getRandomColor() {
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += (Math.random() * 16 | 0).toString(16);
+        }
+        return color;
+    }
+
+
+})

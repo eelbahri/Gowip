@@ -1,5 +1,28 @@
  @import "bootstrap-sprockets";
- // https://bootswatch.com/darkly/
- @import "bootswatch/darkly/variables";
+ // https://bootswatch.com/yeti/
+ @import "bootswatch/yeti/variables";
  @import "bootstrap";
- @import "bootswatch/darkly/bootswatch";
+ @import "bootswatch/yeti/bootswatch";
+
+// Categorie
+ .cube{
+     -webkit-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+     -moz-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+     box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+     width: 19%;
+     height: 200px;
+     border-radius: 4px;
+     display: inline-block;
+     padding: 20px;
+     text-align: center;
+     line-height: 130px;
+     font-size: 1.5em;
+     font-weight: bold;
+     color: black;
+     text-decoration: none;
+ }
+
+.cube:hover{
+    text-decoration: none;
+    color: black;
+}

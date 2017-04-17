@@ -1,3 +1,19 @@
-<h1>Edit a category</h1>
+<h1>Editing Category</h1>
 
-<%= render partial: 'form' %>
+<%= render 'form', category: @category %>
+
+
+<div class="row">
+    <div class="form-group col-lg-5">
+        <%= link_to 'Delete', @category,
+            method: :delete,
+            data: {
+                confirm: 'Are you sure ?'
+            },
+            class: 'btn btn-danger' %>
+
+        <%= link_to 'Show', @category, class: 'btn btn-default' %>
+        <%= link_to 'Back', categories_path, class: 'btn btn-info' %>
+
+    </div>
+</div>
