@@ -9,7 +9,7 @@
      -webkit-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
      -moz-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
      box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
-     width: 19%;
+     width: calc(20% - 4px);
      height: 200px;
      border-radius: 4px;
      display: inline-block;
@@ -25,4 +25,33 @@
 .cube:hover{
     text-decoration: none;
     color: black;
+}
+
+.box{
+    margin-top: 20px;
+
+    background-color: rgba(236, 236, 242, 0.9);
+    border: 1px solid rgb(236, 236, 220);
+    border-radius: 4px;
+
+    height: 90vh;
+    width: 100%;
+}
+
+.block{
+    width: 100%;
+    height: auto;
+    margin: 7px 2px 0 2px;
+}
+
+.msg {
+    // contain the message in a white div and its author with the date above
+}
+
+.author {
+    // small font and light color with date
+}
+
+.content {
+    // message content in a rounded white div
 }

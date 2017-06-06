@@ -31,6 +31,23 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Devise config
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.mailer_sender = '"Gowip" <welcome@gowip.com>'
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :domain => "mail.google.com",
+      :user_name => "bookerz.project@gmail.com",
+      :password => "bookerz2017",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

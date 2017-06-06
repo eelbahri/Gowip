@@ -16,3 +16,16 @@
         <%= link_to 'Back', categories_path, class: 'btn btn-info' %>
     </div>
 </div>
+
+<div class="box">
+    <div class="block">
+        <div class="msg">
+            <div class="author">
+                <div class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="text" name="sendMessage" data-room="<%= @category.id %>">

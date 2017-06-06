@@ -26,10 +26,11 @@ $(document).on('turbolinks:load', function() {
     });
 
     function getRandomColor() {
-        var color = '#';
+        var color = '#10';
         for (var i = 0; i < 6; i++) {
-            color += (Math.random() * 16 | 0).toString(16);
+            color += (Math.random() * 8 | 0).toString(8);
         }
+        console.log(color);
         return color;
     }
 

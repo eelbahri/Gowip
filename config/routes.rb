@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :messages
   # http://guides.rubyonrails.org/routing.html
   resources :categories
   # resources :contact
-  root 'home#index'
+  root 'categories#index'
 end
