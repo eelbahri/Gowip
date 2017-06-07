@@ -30,9 +30,32 @@ $(document).on('turbolinks:load', function() {
         for (var i = 0; i < 6; i++) {
             color += (Math.random() * 8 | 0).toString(8);
         }
-        console.log(color);
         return color;
     }
+
+    $('#sendMessage').submit(function(event) {
+        event.preventDefault();
+        var room = $("#content").data("room");
+        var content = $("#content").val();
+        var data = {'room': room, 'content': content};
+
+        $.ajax({
+            url: "/messages/new",
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function(data){
+                alert(done);
+            },error: function(ts) {
+                console.log(ts.responseText);
+            }
+        })
+
+        console.log(content);
+        $("#content").val("");
+
+
+    });
 
 
 })

@@ -9,6 +9,9 @@
                 <li>
                     <% if user_signed_in? %>
                         <li>
+                            <%= link_to 'Modifier profile',edit_user_registration_path %>
+                        </li>
+                        <li>
                             <%= link_to('Se deconnecter', destroy_user_session_path, :method => :delete) %>
                         </li>
                     <% else %>

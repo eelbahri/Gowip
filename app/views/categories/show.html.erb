@@ -27,5 +27,6 @@
         </div>
     </div>
 </div>
-
-<input type="text" name="sendMessage" data-room="<%= @category.id %>">
+<form method="post" id="sendMessage">
+        <input type="text" id="content" data-room="<%= @category.id %>">
+</form>

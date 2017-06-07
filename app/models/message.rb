@@ -1,3 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :category
+  belongs_to :user
+  belongs_to :categories
+
+  after_create_commit { MessageBroadcastJob.perform_later self }
 end
