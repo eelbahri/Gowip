@@ -4,28 +4,57 @@
  @import "bootstrap";
  @import "bootswatch/yeti/bootswatch";
 
+
+.super-title{
+  text-align: center;
+  margin-bottom: 55px;
+  font-size: 60px;
+}
+
+hr {
+  width: 50%;
+}
+
 // Categorie
- .cube{
-     -webkit-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
-     -moz-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
-     box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
-     width: calc(20% - 4px);
-     height: 200px;
-     border-radius: 4px;
-     display: inline-block;
-     padding: 20px;
-     text-align: center;
-     line-height: 130px;
-     font-size: 1.5em;
-     font-weight: bold;
-     color: black;
-     text-decoration: none;
+ .circle{
+  -webkit-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+  -moz-box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+  box-shadow: 6px 4px 15px -7px rgba(11,13,46,0.83);
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-left: 60px;
+  margin-bottom: 60px;
  }
 
-.cube:hover{
-    text-decoration: none;
-    color: black;
+.circle a:hover{
+  text-decoration: none;
 }
+
+ .category-first-letter{
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 144px;
+ }
+
+ .category-title {
+  text-align: center;
+  margin-top: 10px;
+  color:black;
+ }
+
+ .category-title:hover {
+  text-decoration:underline;
+ }
+
+ a .category-title:hover {
+      opacity:1;
+ }
 
 .box{
     margin-top: 20px;
@@ -54,4 +83,44 @@
 
 .content {
     // message content in a rounded white div
+}
+
+form label {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+form input{
+  display: block;
+  width: 600px;
+  height: 50px;
+}
+
+form textarea {
+  display: block;
+  width: 600px;
+  height: 200px;
+}
+
+.content-centered {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.row {
+  text-align:center;
+}
+
+.little-button{
+  display:inline-block;
+  margin:0 auto;
+  width: 197px;
+}
+
+.big-button{
+  width:100%;
+}
+
+.text-centered{
+  text-align: center;
 }
