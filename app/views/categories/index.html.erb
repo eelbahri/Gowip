@@ -17,7 +17,7 @@
             <div class="circle">
                 <%= link_to c do %>
                   <div class="category-first-letter"><%= c.name.capitalize.chars.first %></div>
-                  <div class="category-title"><%= c.name.capitalize %></div>
+                  <div class="category-title">#<%= c.name.capitalize %></div>
                 <% end %>
             </div>
           <% end %>
