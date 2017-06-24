@@ -21,18 +21,14 @@
 
 $(document).on('turbolinks:load', function() {
 
-    $('.cube').each(function() {
+    $('.circle').each(function() {
         $(this).css("background-color", getRandomColor());
     });
 
-    function getRandomColor() {
-        var color = '#10';
-        for (var i = 0; i < 6; i++) {
-            color += (Math.random() * 8 | 0).toString(8);
-        }
-        console.log(color);
-        return color;
-    }
+    function getRandomColor () {
+  var hex = Math.floor(Math.random() * 0xFFFFFF);
+  return "#" + ("000000" + hex.toString(16)).substr(-6);
+}
 
 
 })
