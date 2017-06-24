@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170607210123) do
 
-
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -22,12 +21,11 @@ ActiveRecord::Schema.define(version: 20170607210123) do
 
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "categories_id"
-    t.text     "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["categories_id"], name: "index_messages_on_categories_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.string   "content"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_messages_on_category_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -55,13 +53,16 @@ ActiveRecord::Schema.define(version: 20170607210123) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "pseudo"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

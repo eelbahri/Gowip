@@ -1,5 +1,7 @@
-<h2><%= t(".forgot_your_password") %></h2>
+<h1 class="super-title"><%= t(".forgot_your_password") %></h1>
+<hr>
 
+<div class="content-centered">
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
 
@@ -7,9 +9,11 @@
     <%= f.input :email, required: true, autofocus: true %>
   </div>
 
+  <br>
   <div class="form-actions">
-    <%= f.button :submit, t(".send_me_reset_password_instructions") %>
+    <%= f.button :submit, t(".send_me_reset_password_instructions"), class: 'btn btn-primary big-button' %>
   </div>
 <% end %>
-
+<hr>
 <%= render "devise/shared/links" %>
+</div>

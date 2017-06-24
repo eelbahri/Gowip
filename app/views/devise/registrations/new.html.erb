@@ -1,18 +1,23 @@
-<h2><%= t(".sign_up") %></h2>
+<h1 class="super-title"><%= t(".sign_up") %></h1>
+<hr>
 
+<div class="content-centered">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-group">
         <%= f.input :username, required: true, autofocus: true %>
         <%= f.input :email, required: true %>
         <%= f.input :password, required: true %>
         <%= f.input :password_confirmation, required: true %>
   </div>
+  <br>
 
   <div class="form-actions">
-    <%= f.button :submit, t(".sign_up") %>
+    <%= f.button :submit, t(".sign_up"), class: 'btn btn-primary big-button' %>
   </div>
 <% end %>
-
+<hr>
 <%= render "devise/shared/links" %>
+
+</div>
