@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :messages
-  # http://guides.rubyonrails.org/routing.html
-  resources :categories
-  # resources :contact
-  root 'categories#index'
+  resources :chat_rooms, only: [:new, :create, :show, :index]
+
+  root 'chat_rooms#index'
+
+  mount ActionCable.server => '/cable'
 end

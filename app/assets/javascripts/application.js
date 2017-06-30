@@ -16,7 +16,7 @@
 //= require_tree
 //= require bootstrap-sprockets
 //= require turbolinks
-
+//= require cable
 
 
 $(document).on('turbolinks:load', function() {
