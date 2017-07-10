@@ -8,6 +8,15 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <% if user_signed_in? %>
+                        <% if current_user.has_role?(:admin) %>
+                            <li>
+                                <%= link_to('Administration', admin_chat_rooms_path) %>
+                            </li>
+                        <% end %>
+
+                        <li>
+                            <%= link_to('Mes salons', mine_chat_rooms_path) %>
+                        </li>
                         <li>
                             <%= link_to current_user.username, edit_user_registration_path %>
                         </li>

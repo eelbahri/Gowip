@@ -1,15 +1,12 @@
 <div class="col-lg-12">
-    <h1 class="super-title">Sélectionnez un salon de chat</h1>
+    <h1 class="super-title">Mes salons</h1>
     <hr>
     <br><br>
-    <%= form_tag(chat_rooms_path, :method => "get", id: "search-form") do %>
+    <%= form_tag(mine_chat_rooms_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Rechercher un salon" %>
             <%= submit_tag "Recherche", id: "submitSearch" %>
     <% end %>
-    <!-- Affiche la pagination seulement si il y a plus d'une page -->
-    <% if @chat_rooms.count > 7 %>
-        <%=  will_paginate @chat_rooms, renderer: BootstrapPagination::Rails %>
-    <% end %>
+
     <br>
     <div class="circle">
         <%= link_to new_chat_room_path do %>

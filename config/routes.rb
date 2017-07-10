@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :messages
-  resources :chat_rooms, only: [:new, :create, :show, :index]
+  resources :chat_rooms do
+      collection do
+          get 'mine'
+          get 'admin'
+      end
+  end
 
   root 'chat_rooms#index'
 

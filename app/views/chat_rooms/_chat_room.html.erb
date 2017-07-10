@@ -1,0 +1,6 @@
+<div class="circle">
+    <%= link_to chat_room do %>
+      <div class="category-first-letter"><%= chat_room.title.capitalize.chars.first %></div>
+      <div class="category-title">#<%= chat_room.title.capitalize %></div>
+    <% end %>
+</div>

@@ -1,0 +1,18 @@
+<h1 class="super-title">Modifier un salon</h1>
+
+<%= simple_form_for @chat_room do |f| %>
+    <div class="row">
+        <div class="form-group col-lg-5">
+            <p>
+                <%= f.input :title, label: 'Titre', class:'form-control' %>
+            </p>
+        </div>
+    </div>
+
+    <p>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    </p>
+<% end %>
+
+
+<%= link_to 'Revenir à l\'administration', admin_chat_rooms_path, class: 'btn btn-default' %>
