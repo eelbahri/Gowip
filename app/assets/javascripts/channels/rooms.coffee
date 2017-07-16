@@ -22,6 +22,12 @@ jQuery(document).on 'turbolinks:load', ->
     send_message: (message, chat_room_id) ->
         @perform 'send_message', message: message, chat_room_id: chat_room_id
 
+    $('#message_content').keydown (e) ->
+        console.log(e);
+        if(e.which == 13)
+            $('#new_message').submit()
+            return false
+
     $('#new_message').submit (e) ->
         console.log(e);
         $this = $(this)
