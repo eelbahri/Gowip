@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+    <h1 class="super-title">Administration des utilisateurs</h1>
+
+    <%= form_tag(users_chat_rooms_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Rechercher un salon" %>
+            <%= submit_tag "Recherche", id: "submitSearch", class: "btn btn-info" %>
+    <% end %>
+
+
+    <%=  will_paginate @users, renderer: BootstrapPagination::Rails %>
+    <% if @users.present? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Date d'inscription</th>
+                    <th>Roles</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <td><%= user.username %></td>
+                        <td><%= user.created_at.strftime("%d-%m-%Y") %></td>
+                        <td><%=  %></td>
+                        <td>
+                            <%= link_to 'Supprimer', users_extend_path(user),
+                            method: :delete,
+                            data: {
+                                confirm: 'Êtes vous sûr de supprimer cet utilisateur ? Cette action est irréversible'
+                            },
+                            class: 'btn btn-danger' %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+    <% else %>
+        <p>Aucun salon ne correspond à cette recherche <%= params[:search] %>.</p>
+    <% end %>
+
+</div>

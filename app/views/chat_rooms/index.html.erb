@@ -2,10 +2,7 @@
     <h1 class="super-title">Sélectionnez un salon de chat</h1>
     <hr>
     <br><br>
-    <%= form_tag(chat_rooms_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Rechercher un salon" %>
-            <%= submit_tag "Recherche", id: "submitSearch" %>
-    <% end %>
+    <%= render "layouts/search" %>
     <!-- Affiche la pagination seulement si il y a plus d'une page -->
     <% if @chat_rooms.count > 7 %>
         <%=  will_paginate @chat_rooms, renderer: BootstrapPagination::Rails %>
@@ -21,6 +18,10 @@
     <% if @chat_rooms.present? %>
         <%= render @chat_rooms %>
     <% else %>
-        <p>Aucun salon ne correspond à cette recherche <%= params[:search] %>.</p>
+        <% if params[:search].present? %>
+            <p>Aucun salon ne correspond à cette recherche : <%= params[:search] %>.</p>
+        <% else %>
+            <p>Il n'y a aucun salon</p>
+        <% end %>
     <% end %>
 </div>

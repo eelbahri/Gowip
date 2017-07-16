@@ -8,28 +8,42 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <% if user_signed_in? %>
-                        <% if current_user.has_role?(:admin) %>
-                            <li>
-                                <%= link_to('Administration', admin_chat_rooms_path) %>
-                            </li>
-                        <% end %>
+                    <% if current_user.has_role?(:admin) %>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Administration <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to('Utilisateurs', users_chat_rooms_path) %></li>
+                            <li><%= link_to('Salon', salons_chat_rooms_path) %></li>
+                        </ul>
+                    </li>
+                    <% end %>
 
-                        <li>
-                            <%= link_to('Mes salons', mine_chat_rooms_path) %>
-                        </li>
-                        <li>
-                            <%= link_to current_user.username, edit_user_registration_path %>
-                        </li>
-                        <li>
-                            <%= link_to('Se deconnecter', destroy_user_session_path, :method => :delete) %>
-                        </li>
+                    <li>
+                        <%= link_to('Mes salons', mine_chat_rooms_path) %>
+                    </li>
+                    <li>
+                        <%= link_to current_user.username, edit_user_registration_path %>
+                    </li>
+                    <li>
+                        <%= link_to('Se deconnecter', destroy_user_session_path, :method => :delete) %>
+                    </li>
                     <% else %>
-                        <li>
-                            <%= link_to('Se connecter', new_user_session_path)  %>
-                        </li>
+                    <li>
+                        <%= link_to('Se connecter', new_user_session_path)  %>
+                    </li>
                     <% end %>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<br>
+<% flash.each do |name, msg| %>
+<div class="alert alert-<%= name %>">
+    <a class="close" data-dismiss="alert">x</a>
+    <%= content_tag :div, msg, id:"flash_#{name}" %>
+</div>
+<% end %>
+
+<br>

@@ -5,6 +5,10 @@
  @import "bootswatch/yeti/bootswatch";
 
 
+#notice {
+    display: none;
+}
+
 .super-title{
   text-align: center;
   margin-bottom: 55px;
@@ -72,10 +76,14 @@ hr {
     overflow-y: scroll;
 }
 
-.block{
+.block {
     width: 100%;
     height: auto;
     margin: 7px 2px 0 2px;
+}
+
+.block:hover {
+    background-color: rgba(128, 128, 128, 0.16);
 }
 
 .msg {
@@ -88,6 +96,7 @@ hr {
 
 .content {
     // message content in a rounded white div
+    padding: 5px 10px;
 }
 
 .legend {
@@ -150,6 +159,11 @@ form input {
     width: 300px;
     text-align: center;
     margin-left: calc(50% - 150px);
+}
+
+#user_remember_me {
+    width: auto;
+    height: auto;
 }
 
 #submitSearch {

@@ -1,13 +1,8 @@
 class ChatRoomsController < ApplicationController
-
+    before_action :chat_rooms_search, only: [:index, :salons]
     load_and_authorize_resource
 
     def index
-        if params[:search]
-            @chat_rooms = ChatRoom.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 7)
-        else
-            @chat_rooms = ChatRoom.order("created_at DESC").paginate(:page => params[:page], per_page: 7)
-        end
     end
 
     def show
@@ -21,7 +16,6 @@ class ChatRoomsController < ApplicationController
         else
             @chat_rooms = current_user.chat_rooms.order("created_at DESC")
         end
-
         render :mine
     end
 
@@ -30,44 +24,69 @@ class ChatRoomsController < ApplicationController
     end
 
     def create
-        @chat_room = current_user.chat_rooms.build(chat_room_params)
-        if @chat_room.save
-            flash[:success] = 'Chat room added!'
+        if ChatRoom.exists?(title: @chat_room.title)
+            flash[:danger] = "Ce salon existe déjà"
             redirect_to chat_rooms_path
         else
-            render 'new'
+            @chat_room = current_user.chat_rooms.build(chat_room_params)
+            if @chat_room.save
+                flash[:success] = "Le salon a bien été crée"
+                redirect_to chat_rooms_path
+            else
+                render 'new'
+            end
         end
     end
 
-    def admin
+    def users
         if params[:search]
-            @chat_rooms = ChatRoom.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 10);
+            @users = User.search(params[:search]).order("id DESC").paginate(:page => params[:page], per_page: 10);
         else
-            @chat_rooms = ChatRoom.all.order("created_at DESC").paginate(:page => params[:page], per_page: 10);
+            @users = User.all.order("id DESC").paginate(:page => params[:page], per_page: 10);
         end
-        render :admin
+        render :users
+    end
+
+    def salons
+        render :salons
     end
 
     def edit
+        session[:return_to] ||= request.referer
     end
 
     def update
         if @chat_room.update chat_room_params
-            flash[:success] = "Le salon #{@chat_room.title} a bien été modifié."
-            redirect_to admin_chat_rooms_path
+            flash[:success] = "Le salon \"#{@chat_room.title}\" a bien été modifié."
+            redirect_to session.delete(:return_to)
         else
             render 'edit'
         end
     end
 
+    def destroy_user
+        # flash[:success] = "L'utilsateur \"#{@user.username}\" a bien été supprimé."
+        @user.destroy
+        redirect_to users_chat_rooms_path
+    end
+
     def destroy
+        flash[:success] = "Le Salon \"#{@chat_room.title}\" a bien été supprimé."
         @chat_room.destroy
-        redirect_to admin_chat_rooms_path
+        redirect_to salons_chat_rooms_path
     end
 
     private
 
     def chat_room_params
         params.require(:chat_room).permit(:title)
+    end
+
+    def chat_rooms_search
+        if params[:search]
+            @chat_rooms = ChatRoom.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], per_page: 10);
+        else
+            @chat_rooms = ChatRoom.all.order("created_at DESC").paginate(:page => params[:page], per_page: 10);
+        end
     end
 end

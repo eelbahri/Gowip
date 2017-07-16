@@ -1,0 +1,5 @@
+<%= form_tag(chat_rooms_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Rechercher un salon" %>
+        <%= submit_tag "Recherche", id: "submitSearch", class: "btn btn-info" %>
+<% end %>
+<!-- Création d'un helper pour générer ce code - incomplet -->

@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
     has_many :chat_rooms, dependent: :destroy
     has_many :messages, dependent: :destroy
+    after_create :assign_default_role
+
+    def assign_default_role
+        self.add_role(:simple_user) if self.roles.blank?
+    end
 end

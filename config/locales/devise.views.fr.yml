@@ -2,8 +2,9 @@ fr:
   activerecord:
     attributes:
       user:
+        username: Pseudo
         current_password: Mot de passe actuel
-        email: Courriel
+        email: Email
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Se souvenir de moi
@@ -76,7 +77,7 @@ fr:
         currently_waiting_confirmation_for_email: 'Confirmation en attente pour: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laissez ce champ vide pour le laisser inchangé
         title: "Éditer %{resource}"
-        unhappy: 'Pas content '
+        unhappy: "Vous n'êtes pas satisfait ?"
         update: Modifier
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
       new:
