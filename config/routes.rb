@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     end
 
     resources :users_extend, :path => 'users', param: :id, only: [:destroy]
-    
+    resources :users_extend, :path => 'users', param: :id, only: [:update] do
+        get 'update', :on => :member
+    end
+
 
     root 'chat_rooms#index'
 

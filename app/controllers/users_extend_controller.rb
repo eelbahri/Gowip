@@ -9,4 +9,15 @@ class UsersExtendController < ApplicationController
     end
   end
 
+  def update
+      user = User.find(params[:id])
+
+      if user.has_role? :admin
+          user.remove_role :admin
+      else
+          user.add_role :admin
+      end
+      redirect_to users_chat_rooms_path
+  end
+
 end
